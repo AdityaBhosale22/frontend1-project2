@@ -6,7 +6,7 @@
     <title>Startup Landing Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -17,194 +17,201 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
+            background-color: #000000; 
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-color: #FFB400;
+            --bg-color: #000000;
         }
 
         .navbar {
             position: sticky;
             top: 0;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--primary-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 20px 5%;
             z-index: 1000;
         }
 
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
-            color: #2c3e50;
+            color: #000;
+            text-decoration: underline;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
-            margin-left: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            color: #000;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
-            color: #007bff;
+            text-decoration: underline;
         }
 
         .intro-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 5%;
-            background-color: #f9f9f9;
-            flex-wrap: wrap; 
+            padding: 80px 10%;
+            min-height: 80vh;
         }
 
         .intro-content {
             flex: 1;
-            padding-right: 40px;
-            min-width: 300px;
+            padding-right: 50px;
         }
 
         .intro-content h1 {
             font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 20px;
-            line-height: 1.2;
-            color: #2c3e50;
+            color: #ffffff;
         }
 
         .intro-content p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 15px 30px;
             font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #cccccc;
         }
 
-        .cta-button:hover {
-            background-color: #0056b3;
+        .login-btn {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px; 
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
         }
 
         .intro-image {
             flex: 1;
             display: flex;
             justify-content: center;
-            min-width: 300px;
         }
 
         .intro-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .contact-section {
-            padding: 60px 5%;
-            background-color: #fff;
-            text-align: center;
+            padding: 60px 10%;
         }
 
         .contact-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #2c3e50;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
         }
 
         .form-container {
-            max-width: 600px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            max-width: 800px; 
         }
 
         .custom-input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 15px 25px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            border-radius: 30px; 
+            color: var(--primary-color);
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            outline: none; 
+        }
+
+        .custom-input::placeholder {
+            color: #b38600; 
         }
 
         .custom-input:focus {
-            outline: none; 
-            border-color: #2c3e50;
+            background-color: rgba(255, 180, 0, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            align-self: center;
+            margin-top: 10px;
         }
 
         .table-section {
-            padding: 60px 5%;
-            background-color: #f4f6f8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .table-section h2 {
-            margin-bottom: 30px;
-            color: #2c3e50;
+            padding: 60px 10% 100px 10%;
         }
 
         table {
             width: 100%;
-            max-width: 800px;
             border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            overflow: hidden;
+            border: 1px solid var(--primary-color);
+            margin-top: 20px;
         }
 
         th, td {
-            padding: 15px 20px;
+            border: 1px solid var(--primary-color);
+            padding: 20px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            color: var(--primary-color);
         }
 
         th {
-            background-color: #2c3e50;
-            color: white;
             font-weight: 600;
         }
 
         tfoot {
-            background-color: #e9ecef;
-            font-weight: 700;
+            background-color: var(--primary-color);
         }
-        
+
         tfoot td {
-            border-bottom: none;
-            color: #2c3e50;
+            color: #000000;
+            border-color: #000000;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 10px;
-            }
-            .nav-links a {
-                margin: 0 10px;
+                gap: 15px;
             }
             .intro-section {
+                flex-direction: column;
                 text-align: center;
-                flex-direction: column-reverse;
             }
             .intro-content {
                 padding-right: 0;
-                margin-top: 30px;
+            }
+            .form-row {
+                flex-direction: column;
             }
         }
     </style>
@@ -214,65 +221,85 @@
     <nav class="navbar">
         <div class="logo">Startup</div>
         <div class="nav-links">
-            <a href="#intro">Home</a>
-            <a href="#contact">Contact</a>
-            <a href="#table">Data</a>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Login</a>
         </div>
     </nav>
 
-    <section class="intro-section" id="intro">
+    <section class="intro-section">
         <div class="intro-content">
-            <h1>Building the Future <br>One Step at a Time</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button class="cta-button">Get Started</button>
+            <h1>Startup Landing Page</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="login-btn">Login</button>
         </div>
         <div class="intro-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg/640px-Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg" alt="Jeff Bezos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg/640px-Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg" style="border-radius: 20px; mask-image: linear-gradient(to bottom, black, transparent);" alt="Jeff Bezos">
         </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    <section class="contact-section">
         <h2>Contact Us</h2>
-        <div class="form-container">
-            <input type="text" placeholder="Full Name" class="custom-input">
-            <input type="email" placeholder="Email Address" class="custom-input">
-            <textarea placeholder="Your Message" rows="5" class="custom-input"></textarea>
-            <button class="cta-button" style="width: 100%;">Send Message</button>
-        </div>
+        <form class="form-container">
+            <input type="text" placeholder="Name" class="custom-input">
+            <input type="email" placeholder="Email" class="custom-input">
+            
+            <div class="form-row">
+                <input type="text" placeholder="Mobile Number" class="custom-input">
+                <input type="text" placeholder="City" class="custom-input">
+            </div>
+
+            <button type="button" class="submit-btn">Submit Form</button>
+        </form>
     </section>
 
-    <section class="table-section" id="table">
-        <h2>Company Data</h2>
+    <section class="table-section">
         <table>
             <thead>
                 <tr>
-                    <th>Department</th>
-                    <th>Employees</th>
-                    <th>Budget</th>
+                    <th>SNO.</th>
+                    <th>Startup Name</th>
+                    <th>Startup Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Engineering</td>
-                    <td>120</td>
-                    <td>$1,200,000</td>
+                    <td>1.</td>
+                    <td>WowIndia</td>
+                    <td>A startup with WOW Ideas.</td>
                 </tr>
                 <tr>
-                    <td>Marketing</td>
-                    <td>45</td>
-                    <td>$600,000</td>
+                    <td>2.</td>
+                    <td>Loreum Ipsum</td>
+                    <td>Loreum Ipsum Text</td>
                 </tr>
                 <tr>
-                    <td>Design</td>
-                    <td>30</td>
-                    <td>$450,000</td>
+                    <td>2.</td>
+                    <td>Loreum Ipsum</td>
+                    <td>Loreum Ipsum Text</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Loreum Ipsum</td>
+                    <td>Loreum Ipsum Text</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Loreum Ipsum</td>
+                    <td>Loreum Ipsum Text</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Loreum Ipsum</td>
+                    <td>Loreum Ipsum Text</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td>Total</td>
-                    <td>195</td>
-                    <td>$2,250,000</td>
+                    <td>00.</td>
+                    <td>Final Footer</td>
+                    <td>Loreum Ipsum Text</td>
                 </tr>
             </tfoot>
         </table>
